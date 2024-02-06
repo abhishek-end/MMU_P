@@ -39,7 +39,7 @@ function SignUp() {
         dispatch(signInFailure(data.message));
         return;
       }
-      dispatch(signInSuccess(data.error));
+      dispatch(signInSuccess(data));
       navigate("/");
     } catch (error) {
       dispatch(signInFailure(error.message));
