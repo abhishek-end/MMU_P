@@ -8,6 +8,7 @@ import {
   signInSuccess,
   signInFailure,
 } from "../redux/user/userSlice";
+import OAuth from "../components/OAuth";
 
 function SignUp() {
   const [formData, setFormData] = useState({});
@@ -48,6 +49,9 @@ function SignUp() {
 
   return (
     <div className="max-w-lg mx-auto mt-40">
+      <h1 className="text-black  font-extrabold text-center mb-12 text-3xl">
+        SIGN IN
+      </h1>
       <form
         onSubmit={handleSubmit}
         className="flex flex-col justify-center gap-4 max-w-lg"
@@ -80,8 +84,10 @@ function SignUp() {
         >
           {loading ? "loading..." : "SIGN IN"}
         </button>
+
+        <OAuth />
       </form>
-      <div className="flex gap-2">
+      <div className="flex gap-2 mt-2 ml-1">
         <p>Don't have an account?</p> {/* Corrected typo: Dont to Don't */}
         <Link to={"/sign-up"} className="text-blue-700">
           Sign Up

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faSquareFacebook, faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { Link, useNavigate } from "react-router-dom";
+import OAuth from "../components/OAuth";
 function SignUp() {
   const [formData, setFormData] = useState({});
   const [error, setError] = useState(null);
@@ -42,6 +43,9 @@ function SignUp() {
   };
   return (
     <div className=" max-w-lg mx-auto mt-40 ">
+      <h1 className="text-black  font-extrabold text-center mb-12 text-3xl">
+        SIGN UP
+      </h1>
       <form
         onSubmit={handleSubmit}
         className="flex flex-col justify-center gap-4 max-w-lg  "
@@ -75,14 +79,14 @@ function SignUp() {
           onChange={handleChange}
         /> */}
         <button
-          type="submit"
           className="border text-white text-xl bg-secondary rounded-xl p-2"
           disabled={loading}
         >
           {loading ? "loading..." : "SIGN UP"}
         </button>
+        <OAuth />
       </form>
-      <div className="flex gap-2">
+      <div className="flex gap-2 mt-3">
         <p>Have an account?</p>
         <Link to={"/sign-in"} className="text-blue-700">
           Sign In
