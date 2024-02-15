@@ -17,7 +17,8 @@ password:{
 },
 avatar:{
     type:String,
-    default:"https://picsum.photos/200/300"
+    default:"https://lh3.googleusercontent.com/a/ACg8ocJ7BN9cR43COx1NAFDlh69wq-cwb0DDroBEcVxuJOD9GkU=s96-c"
+
 },
 
 }, {timestamps:true})

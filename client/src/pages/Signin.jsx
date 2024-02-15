@@ -58,14 +58,14 @@ function SignUp() {
       >
         <input
           type="text"
-          placeholder="Email"
+          placeholder="Email Address *"
           className="border p-3 rounded-lg"
           id="email"
           onChange={handleChange}
         />
         <input
           type="password"
-          placeholder="Password"
+          placeholder="Password *"
           className="border p-3 rounded-lg"
           id="password"
           onChange={handleChange}
