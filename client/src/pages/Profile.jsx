@@ -11,13 +11,13 @@ import { app } from "../firebase.js";
 
 function Profile() {
   const { currentUser } = useSelector((state) => state.user);
-  const avatar = currentUser.avatar;
 
   const fileRef = useRef(null);
   const [file, setFile] = useState(undefined);
   const [fileperc, setFilePerc] = useState(0);
   const [error, setError] = useState(false);
   const [formData, setFormData] = useState({});
+  const avatar = formData.avatar || currentUser.avatar;
   useEffect(() => {
     if (file) {
       handleFileUpload(file);
@@ -38,7 +38,7 @@ function Profile() {
         setFilePerc(Math.round(progress));
       },
       (error) => {
-        setFileUploadError(true);
+        setError(true);
       },
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) =>
@@ -68,6 +68,13 @@ function Profile() {
           alt="profile"
           className="rounded-full h-32 w-32 self-center text-center cursor-pointer object-cover"
         />
+        {error ? (
+          <span className="text-red-700">image is greater than 2MB</span>
+        ) : fileperc > 0 && fileperc < 100 ? (
+          <span>Progress: {fileperc}%</span>
+        ) : fileperc === 100 ? (
+          <span className="text-green-700">Image uploaded!</span>
+        ) : null}
         <label htmlFor="username">Username</label>
         <input
           type="text"
@@ -75,6 +82,7 @@ function Profile() {
           placeholder="Username"
           className="border p-3 rounded-lg outline-none"
         />
+        <p></p>
         <label htmlFor="email">Email</label>
         <input
           type="email"
