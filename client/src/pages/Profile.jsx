@@ -11,12 +11,13 @@ import { app } from "../firebase.js";
 
 function Profile() {
   const { currentUser } = useSelector((state) => state.user);
+  const avatar = currentUser.avatar;
+
   const fileRef = useRef(null);
   const [file, setFile] = useState(undefined);
   const [fileperc, setFilePerc] = useState(0);
   const [error, setError] = useState(false);
   const [formData, setFormData] = useState({});
-  
   useEffect(() => {
     if (file) {
       handleFileUpload(file);
@@ -63,7 +64,7 @@ function Profile() {
         />
         <img
           onClick={() => fileRef.current.click()}
-          src={currentUser.avatar}
+          src={avatar}
           alt="profile"
           className="rounded-full h-32 w-32 self-center text-center cursor-pointer object-cover"
         />
