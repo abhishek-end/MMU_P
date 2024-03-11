@@ -18,7 +18,7 @@ function Profile() {
   const [error, setError] = useState(false);
   const [formData, setFormData] = useState({});
   const avatar = formData.avatar || currentUser.avatar;
-  console.log(avatar);
+  // console.log(avatar);
   useEffect(() => {
     if (file) {
       handleFileUpload(file);
@@ -51,7 +51,7 @@ function Profile() {
 
   return (
     <div className="p-3 max-w-lg mx-auto">
-      <h1 className="text-center text-3xl font-bold my-7">Profile</h1>
+      <h1 className="text-center text-3xl font-bold my-5  ">Profile</h1>
 
       <form className="flex flex-col gap-y-4">
         <input
@@ -102,7 +102,7 @@ function Profile() {
         />
         <button className="bg-primary rounded-lg p-3">Upgrade</button>
       </form>
-      <div className="flex justify-between mt-5">
+      <div className="flex justify-between">
         <span className="text-red-700 cursor-pointer m-1">Delete account</span>
         <span className="text-red-700 cursor-pointer m-1">Sign Out</span>
       </div>
