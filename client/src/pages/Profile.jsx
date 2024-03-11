@@ -18,6 +18,7 @@ function Profile() {
   const [error, setError] = useState(false);
   const [formData, setFormData] = useState({});
   const avatar = formData.avatar || currentUser.avatar;
+  console.log(avatar);
   useEffect(() => {
     if (file) {
       handleFileUpload(file);
@@ -68,13 +69,15 @@ function Profile() {
           alt="profile"
           className="rounded-full h-32 w-32 self-center text-center cursor-pointer object-cover"
         />
-        {error ? (
-          <span className="text-red-700">image is greater than 2MB</span>
-        ) : fileperc > 0 && fileperc < 100 ? (
-          <span>Progress: {fileperc}%</span>
-        ) : fileperc === 100 ? (
-          <span className="text-green-700">Image uploaded!</span>
-        ) : null}
+        <p>
+          {error ? (
+            <span className="text-red-700">image is greater than 2MB</span>
+          ) : fileperc > 0 && fileperc < 100 ? (
+            <span>Progress: {fileperc}%</span>
+          ) : fileperc === 100 ? (
+            <span className="text-green-700">Image uploaded!</span>
+          ) : null}
+        </p>
         <label htmlFor="username">Username</label>
         <input
           type="text"
